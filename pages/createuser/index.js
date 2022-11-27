@@ -1,11 +1,11 @@
 import Image from "next/image"
 import Link from "next/link.js"
 import React from "react"
-import { User } from "../../context/UserContext.jsx"
+import { User } from "../../context/userCtx.jsx"
 import badges from "../../public/badges/badgesPath.js"
 import user from "../../styles/createuser.module.css"
 
-export default function createUser() {
+export default function CreateUser() {
     const { chosen, setChosen } = React.useContext(User);
     const divRef = React.useRef();
     return (

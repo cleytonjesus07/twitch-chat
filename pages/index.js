@@ -5,11 +5,11 @@ import ChatContainer from "../components/ChatContainer"
 import ChatItem from "../components/ChatContainer/ChatItem"
 import Info from "../components/Info"
 import MessageBox from "../components/MessageBox"
-import { User } from "../context/UserContext";
+import { userContext } from "../context/userCtx";
 import { pb } from "../context/pocketbase";
 export default function Home() {
   const router = useRouter();
-  const { chosen } = useContext(User)
+  const { chosen } = useContext(userContext)
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState({});
   const [showInfoType, setShowInfoType] = useState(false);

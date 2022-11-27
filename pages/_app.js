@@ -1,4 +1,4 @@
-import UserContext from '../context/UserContext'
+import UserContext from '../context/userCtx'
 import '../styles/globals.css'
 
 
