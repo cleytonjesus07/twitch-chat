@@ -1,5 +1,5 @@
 import Image from "next/image";
-export default function chatItem({ message,color,icon,username }) {
+export default function ChatItem({ message,color,icon,username }) {
     return (
 
         <div className="baloon animationToLeft" >

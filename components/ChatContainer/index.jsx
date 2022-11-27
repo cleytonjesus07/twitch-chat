@@ -1,4 +1,4 @@
-export default function chatContainer({ children }) {
+export default function ChatContainer({ children }) {
     return (
         <div className="chat-container">
             <div className="chat">

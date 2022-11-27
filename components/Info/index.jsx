@@ -1,4 +1,4 @@
-export default function information({showInfoType}) {
+export default function Information({showInfoType}) {
     return (
         <div className="warning" style={{opacity:showInfoType ? 1 : 0}}  id="warning">
             <span>Digitando

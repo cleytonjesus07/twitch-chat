@@ -1,13 +1,14 @@
 import Image from "next/image"
 import Link from "next/link.js"
-import React from "react"
+import { useContext, useRef } from "react"
+
 import { userContext } from "../../context/userCtx.jsx"
 import badges from "../../public/badges/badgesPath.js"
 import user from "../../styles/createuser.module.css"
 
-export default function CreateUser() {
-    const { chosen, setChosen } = React.useContext(userContext);
-    const divRef = React.useRef();
+export default function Create() {
+    const { chosen, setChosen } = useContext(userContext);
+    const divRef = useRef();
 
     return (
         <div className={user.container}>

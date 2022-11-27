@@ -7,6 +7,8 @@ import Info from "../components/Info"
 import MessageBox from "../components/MessageBox"
 import { userContext } from "../context/userCtx";
 import { pb } from "../context/pocketbase";
+
+
 export default function Home() {
   const router = useRouter();
   const { chosen } = useContext(userContext)
@@ -16,6 +18,10 @@ export default function Home() {
   const chatItemsRef = useRef();
 
   useEffect(() => {
+    if (!chosen || typeof window === "undefined") {
+      router.push("/createuser");
+      return;
+    }
 
     pb.autoCancellation(false);
     const auth = async () => {
@@ -27,6 +33,7 @@ export default function Home() {
       getAllMessages()
     })
     return () => pb.realtime.unsubscribe('chat');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
@@ -65,10 +72,7 @@ export default function Home() {
     }, 100);
   }
 
-  if (!chosen || typeof window === "undefined") {
-    router.push("/createuser");
-    return;
-  }
+
 
   return (
     <div>
@@ -81,7 +85,7 @@ export default function Home() {
       <ChatContainer>
         <Info showInfoType={showInfoType} />
         <div ref={chatItemsRef} className="chat-items" >
-          {messages.map(({ message, icon, color, username }, index) => {
+          {messages?.map(({ message, icon, color, username }, index) => {
             return <ChatItem key={index} message={message} icon={icon} color={color} username={username} />
           })}
         </div>
