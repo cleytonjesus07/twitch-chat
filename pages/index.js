@@ -25,9 +25,8 @@ export default function Home() {
     getAllMessages();
     pb.autoCancellation(false);
     pb.realtime.subscribe('chat', (e) => {
-      getAllMessages()
+      getAllMessages();
     })
-    return () => pb.realtime.unsubscribe('chat');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
