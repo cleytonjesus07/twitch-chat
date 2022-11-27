@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!chosen || typeof window === "undefined") {
-      router.push("/createuser");
+      router.push("/create");
       return;
     }
 
