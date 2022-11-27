@@ -1,7 +1,11 @@
 <h1>Réplica de um design de chat do Streamer Alan Ferreira(Alanzoka) da twitch</h1>
 
 <p>
-    Fiz uma réplica de um chat da twitch.  
+    Fiz uma réplica de um chat da twitch com as tecnologias:
+
+        -NextJS
+        -ReactJS
+        -PocketBase  
 </p>
 <hr/>
 <h3>Print screen:</h3>
