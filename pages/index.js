@@ -22,14 +22,9 @@ export default function Home() {
       router.push("/create");
       return;
     }
-
+    getAllMessages();
     pb.autoCancellation(false);
-    const auth = async () => {
-      getAllMessages()
-    }
-    auth()
     pb.realtime.subscribe('chat', (e) => {
-      console.log(e)
       getAllMessages()
     })
     return () => pb.realtime.unsubscribe('chat');
