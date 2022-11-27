@@ -16,10 +16,7 @@ export default function Home() {
   const chatItemsRef = useRef();
 
   useEffect(() => {
-    if (!chosen || typeof window === "undefined") {
-      router.push("/createuser");
-      return;
-    }
+
     pb.autoCancellation(false);
     const auth = async () => {
       getAllMessages()
@@ -68,6 +65,10 @@ export default function Home() {
     }, 100);
   }
 
+  if (!chosen || typeof window === "undefined") {
+    router.push("/createuser");
+    return;
+  }
 
   return (
     <div>
