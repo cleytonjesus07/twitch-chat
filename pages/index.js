@@ -52,6 +52,7 @@ export default function Home() {
 
 
   useEffect(() => {
+    getAllMessages()
     scrollDown();
   }, [messages])
 
