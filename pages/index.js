@@ -7,6 +7,7 @@ import Info from "../components/Info"
 import MessageBox from "../components/MessageBox"
 import { userContext } from "../context/userCtx";
 import { pb } from "../context/pocketbase";
+import Image from "next/image";
 
 
 export default function Home() {
@@ -16,7 +17,13 @@ export default function Home() {
   const [message, setMessage] = useState({});
   const [showInfoType, setShowInfoType] = useState(false);
   const chatItemsRef = useRef();
+  const [userOnline, setUserOnline] = useState([]);
 
+
+
+  useEffect(() => {
+    
+  }, [userOnline])
   useEffect(() => {
     if (!chosen || typeof window === "undefined") {
       router.push("/create");
@@ -27,10 +34,28 @@ export default function Home() {
     pb.realtime.subscribe('chat', (e) => {
       getAllMessages();
     })
+
+    
+
+    /* const deleteAll = async () => {
+      const data = await pb.collection('chat').getFullList();
+      data.forEach(({id})=>{
+        pb.collection('chat').delete(id);
+      })
+    }
+    deleteAll() */
+    /*  return ()=>{
+       pb.collection('users').delete()
+     } */
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
+  
+
+  useEffect(()=>{
+    console.log({chosen})
+  },[chosen])
 
 
 
@@ -77,6 +102,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <title>Chat like twitch</title>
       </Head>
+      <div>
+        {userOnline?.map(({ username, icon },index) => <div key={index} style={{fontSize:5}}><Image src={icon||""} width={18} height={18} alt={"icon"} /> - {username}</div>)}
+      </div>
       <ChatContainer>
         <Info showInfoType={showInfoType} />
         <div ref={chatItemsRef} className="chat-items" >
