@@ -85,7 +85,7 @@ export default function Home() {
       <ChatContainer>
         <Info showInfoType={showInfoType} />
         <div ref={chatItemsRef} className="chat-items" >
-          {messages?.map(({ message, icon, color, username }, index) => {
+          {messages.map(({ message, icon, color, username }, index) => {
             return <ChatItem key={index} message={message} icon={icon} color={color} username={username} />
           })}
         </div>
