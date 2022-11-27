@@ -1,26 +1,220 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+html {
+    background-color: #0d0922;
+}
+
+.chat-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+}
+
+.chat {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.form-chat {
+    position: absolute;
+    bottom: -88px;
+    left: 0;
+    right: 0;
+    display: flex;
+}
+
+.chat-input {
+    flex: 2;
+    background-color: #464648;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border: 2px solid transparent;
+    transition: border 300ms ease;
+    border-radius: 0 0 0 5px;
+    font-size: .9rem;
+}
+
+.chat-input:hover {
+    border: 2px solid hsla(0, 0%, 100%, .2);
+}
+
+.form-chat button {
+    cursor: pointer;
+    transition: opacity 300ms ease;
+    opacity: .5;
+    flex: 1;
+    color: #0d0922;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0 0 5px 0;
+    font-weight: 500;
+}
+
+.form-chat button:hover {
+    opacity: 1;
+}
+
+.warning {
+    transition: opacity ease 300ms;
+    position: relative;
+    top: 0;
+    display: flex;
+    width: 100%;
+    padding: 5px 0;
+    z-index: 1;
+    align-items: center;
+}
+
+.warning span.points {
+    display: inline-flex;
+    overflow: hidden;
+    bottom: -3px;
+    width: 0;
+    animation: width 3s ease-in-out infinite;
+    letter-spacing: 2px;
+    height: auto;
+}
+
+@keyframes width {
+    30% {
+        width: 5px;
+    }
+
+    60% {
+        width: 10px;
+    }
+
+    100% {
+        width: 25px;
+    }
+}
+
+.warning::after {
+    background-color: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+}
+
+.warning>span {
+
+    font-size: .9rem;
+    z-index: 1;
+    margin: 0 5px;
+}
+
+.chat-items::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-items {
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-top: 25px;
+}
+
+.center {
+    flex: 0;
+
+    border-radius: 0;
+    background-color: transparent;
+    border: 2px solid orange;
+}
+
+.baloon {
+    position: relative;
+    background-color: rgba(0, 0, 0, .3);
+    border: 2px solid orange;
+    border-radius: 0 5px 5px 5px;
+    margin: 20px 0;
+    left: 100%;
+    opacity: 0;
+}
+
+.animationToLeft {
+    animation: toLeft 900ms ease-in forwards;
+}
+
+@keyframes toLeft {
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        left: 0%;
+    }
+}
+
+.nickname-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width:700px) {
+    .nickname-container {
+        flex-direction: column;
+    }
+}
+
+.nickname-container>span {
+    margin: 5px;
+    font-size: .8rem;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+
+    font-size: .6rem;
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    padding: 5px;
+    border-radius: 0 5px 5px 5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.name img {
+    margin-right: 5px;
+}
+
+.message {
+    display: block;
+    padding: 5px;
+    font-size: .9rem;
+    word-wrap: break-word;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.title img {
+    width: 50px;
+    margin: 0 20px;
 }

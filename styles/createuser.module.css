@@ -1,0 +1,155 @@
+.container {
+    background: linear-gradient(to top, #080616, #100c2b);
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    border: 4px solid #080616;
+}
+
+.title {
+    font-size: medium;
+    text-align: center;
+    padding: 1rem;
+    font-weight: 100;
+}
+
+.containerImages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+
+.containerImages>div {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: calc(100%/3);
+    padding: .5em;
+    opacity: .5;
+    transition: all ease 300ms;
+    cursor: pointer;
+    border: #2d2175 solid 2px;
+
+}
+
+.containerImages>div:hover {
+    opacity: 1;
+}
+
+.selected {
+    animation: blink 1.5s normal forwards;
+}
+
+@keyframes blink {
+    20% {
+        opacity: 0;
+    }
+
+    40% {
+
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.containerImages>div:nth-child(7) {
+    flex: 1;
+    justify-self: center;
+}
+
+.containerColor {
+    display: block;
+    flex-direction: column;
+    padding: .3em 0;
+}
+
+.containerColor > h3{
+    font-weight: 100;
+    font-size: small;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.containerColor > div{
+    display: flex;
+}
+
+
+.containerColor > div > div {
+    position: relative;
+    display: flex;
+    flex: 1;
+    border: #2d2175 solid 1px;
+    border-radius: 10px;
+    padding: 0 .3em;
+    align-items: center;
+}
+
+.containerColor > div > div> div{
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: small;
+    background-color: #2d2175;
+    padding: .1em .4em;
+    border-radius: 5px;
+}
+
+.containerColor > div > div >span {
+    font-size: x-small;
+    font-weight: bold;
+    margin-left: .3em;
+}
+
+.containerColor > div > input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    height: 30px;
+    width: 30px;
+}
+
+
+
+.containerInput>h3 {
+    font-size: small;
+    font-weight: 100;
+    text-align: center;
+    padding: 1em;
+}
+
+.containerInput>input {
+    width: 100%;
+    border: #2d2175 2px solid;
+    background-color: transparent;
+    outline: none;
+    font-size: medium;
+}
+
+
+.containerLink>a {
+    padding: .5em;
+    text-decoration: none;
+    font-weight: 100;
+    width: 100%;
+    cursor: pointer;
+    display: none;
+    text-align: center;
+    transition: all 300ms ease;
+    background: linear-gradient(to bottom, #080616, #100c2b);
+}
+
+.visible {
+    display: block !important;
+}
