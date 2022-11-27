@@ -1,6 +1,6 @@
 import { useRef } from "react"
 
-export default function messageBox({  chosen, setMessage, setShowInfoType }) {
+export default function MessageBox({  chosen, setMessage, setShowInfoType }) {
     const InputRef = useRef();
     return (
         <form className="form-chat" id="form-chat">

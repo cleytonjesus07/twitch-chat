@@ -5,7 +5,7 @@ import { userContext } from "../../context/userCtx.jsx"
 import badges from "../../public/badges/badgesPath.js"
 import user from "../../styles/createuser.module.css"
 
-export default function createUser() {
+export default function CreateUser() {
     const { chosen, setChosen } = React.useContext(userContext);
     const divRef = React.useRef();
 
